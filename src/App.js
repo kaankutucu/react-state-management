@@ -80,5 +80,88 @@
 
 
 
+/*useEffect hook ile yaşam döngülerini yakalayabilme*/
+
+
+// import {useState, useEffect} from "react";
+//
+//
+//
+// function App (){
+//  const [age, setAge] = useState(0);
+//  const [name,setName] = useState ("Kaan");
+//
+//  useEffect(() => {
+//     console.log("Component Mount Edildi");
+//  }, []);
+//
+//  useEffect( () => {
+//     console.log("Age state güncellendi");
+//  }, [age]);                             //state özel methodu dinlemek için [] deps'i koyarak sağlayabiliriz.
+//
+//  useEffect( () => {
+//     console.log("Name state güncellendi");
+//  }, [name]);                              //name alanı bir kere değişeceği için güncelleme işlemini bir kere yapacaktır.
+//
+//
+//
+//
+//    return (
+//        <div className="App">
+//           <h1>{age}</h1>
+//           <button onClick={() => setAge(age + 1)} >Click</button>
+//           <br/><br/> <hr/>
+//           <button onClick={() => setName("Kutucu")} >Click</button>
+//        </div>
+//    )
+//
+// }
+//
+// export default App;
+
+
+
+
+
+import Counter from "./components/Counter";
+import {useState} from "react";
+
+function App () {
+   const [isVisible, setIsVisible] = useState(true); //gelecek ilk değerin true döndürmesi ekranda gösterilmesini sağlayacak. Buton parametresine false atarsak click işlemi yapıldığında false döndürecektir.
+   return (
+       <div className="App">
+          {isVisible && < Counter/> }
+       {/*   True değer döndürdüğü için açılış ekranında göstermiş olacaktır. */}
+          <br/>
+
+          <button onClick={ () => setIsVisible(!isVisible)}>Click</button>
+       {/*   !isVisible vererek falsse değer döndürerek ekranda kaybolmasını sağlayacağız. */}
+       </div>
+   );
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
